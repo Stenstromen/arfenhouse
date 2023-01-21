@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import YouTube from "react-youtube";
+import ReactPlayer from "react-player";
 import "./App.css";
 import Navigations from "./components/Navigations";
 function App() {
-  const [radioValue, setRadioValue] = useState<string>("I3hvFexWF-s");
+  const [radioValue, setRadioValue] = useState<string>(
+    "https://api.arfenhou.se/arfenhouse/Arfenhouse%20-%20The%20Movie-I3hvFexWF-s.mp4"
+  );
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
@@ -21,23 +23,21 @@ function App() {
       &nbsp;
       <h1>Arfenhou.Se!!!!11One</h1>
       &nbsp;
-      <YouTube
-        videoId={radioValue}
-        opts={{
-          height: isMobile ? "300" : "720",
-          width: isMobile ? "390" : "900",
-          playerVars: {
-            // https://developers.google.com/youtube/player_parameters
-            autoplay: 1,
-          },
-        }}
+      <ReactPlayer
+        playing
+        url={radioValue}
+        width={isMobile ? "390px" : "900px"}
+        height={isMobile ? "300px" : "720px"}
+        controls={true}
+        light="/splash.jpg"
       />
       &nbsp;
-        <Navigations
-          radioValue={radioValue}
-          setRadioValue={setRadioValue}
-          isMobile={isMobile}
-        />
+      <Navigations
+        radioValue={radioValue}
+        setRadioValue={setRadioValue}
+        isMobile={isMobile}
+      />
+      &nbsp;
     </div>
   );
 }
