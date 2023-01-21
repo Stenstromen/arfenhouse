@@ -14,15 +14,15 @@ function Navigations({
 }) {
   return (
     <ButtonGroup className={isMobile ? "d-grid gap-2" : ""}>
-      {Vids.map(({ id, name, vidid }) => (
+      {Vids.map(({ id, name, vidid, url }) => (
         <ToggleButton
           key={id}
           id={`radio-${vidid}`}
           type="radio"
           variant="outline-success"
           name="radio"
-          value={vidid}
-          checked={radioValue === vidid}
+          value={url}
+          checked={radioValue === url}
           onChange={(e) => setRadioValue(e.currentTarget.value)}
         >
           {name}
