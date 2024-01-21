@@ -29,7 +29,7 @@ function App() {
         width={isMobile ? "390px" : "900px"}
         height={isMobile ? "300px" : "720px"}
         controls={true}
-        light="/splash.jpg"
+        light="/splash.webp"
       />
       &nbsp;
       <Navigations
